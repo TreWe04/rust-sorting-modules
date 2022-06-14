@@ -1,5 +1,6 @@
-// use sorting_modules;
+use sorting_modules;
 
 fn main() {
-    return;
+    let test_arr = [];
+    println!("{:?} sorted is {:?}", test_arr, sorting_modules::benchmarks::selection_sort(&test_arr));
 }

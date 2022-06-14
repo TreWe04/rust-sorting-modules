@@ -1,3 +1,3 @@
-mod benchmarks;
+pub mod benchmarks;
 
-mod visualizations;
+pub mod visualizations;
