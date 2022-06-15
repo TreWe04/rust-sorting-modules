@@ -1,4 +1,5 @@
-pub fn selection_sort (arr: &[i32]) -> Vec<i32>{
+pub fn selection_sort (arr: &[i32]) -> Vec<i32> {
+    if arr.len() == 0 {return vec![]};
     let mut arr1: Vec<i32> = arr.to_vec();
     
     let mut index = 0;
