@@ -39,6 +39,7 @@ pub fn visualize(arr: &[i32], instructions: Vec<String>) -> Vec<i32> {
 }
 
 pub fn selection_sort (arr: &[i32]) -> Vec<String> {
+    if arr.len() == 0 {return vec![]};
     let mut arr1: Vec<i32> = arr.to_vec();
     let mut result: Vec<String> = Vec::new();
     
