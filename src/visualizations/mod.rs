@@ -6,7 +6,7 @@ fn make_arr2 (arr: &Vec<i32>) -> Vec<String> {
     result
 }
 
-pub fn visualize(arr: &[i32], instructions: Vec<String>) {
+pub fn visualize(arr: &[i32], instructions: Vec<String>) -> Vec<i32> {
     let mut arr1: Vec<i32> = arr.to_vec();
     let mut arr2: Vec<String> = make_arr2(&arr1);
     println!("{}\nSteps to sort: {}", &arr2.join(", "), instructions.len());
@@ -31,12 +31,14 @@ pub fn visualize(arr: &[i32], instructions: Vec<String>) {
                 arr2[index2] = format!("\x1b[101m{}\x1b[0m", arr2[index2]);
                 println!("{}", &arr2.join(", "))
             },
-            _ => {println!("Visualization failed"); return;} 
+            _ => {println!("Visualization failed"); return arr1;} 
         }
     }
+
+    arr1
 }
 
-pub fn selection_sort (arr: &[i32]) -> Vec<String>{
+pub fn selection_sort (arr: &[i32]) -> Vec<String> {
     let mut arr1: Vec<i32> = arr.to_vec();
     let mut result: Vec<String> = Vec::new();
     
