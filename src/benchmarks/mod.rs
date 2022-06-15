@@ -4,16 +4,16 @@ pub fn selection_sort (arr: &[i32]) -> Vec<i32>{
     let mut index = 0;
     for _ in 0..(arr1.len()-1) {
         let mut comparison = arr1[index];
-        let mut temp_index = index;
+        let mut min_index = index;
         for i in (index+1)..arr1.len() {
             if arr1[i] < comparison {
                 comparison = arr1[i];
-                temp_index = i
+                min_index = i
             }
         }
 
-        if temp_index != index {
-            arr1.swap(index, temp_index);
+        if min_index != index {
+            arr1.swap(index, min_index);
         }
         index += 1;
     }
