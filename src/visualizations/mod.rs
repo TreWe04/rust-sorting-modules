@@ -15,9 +15,10 @@ pub fn visualize(arr: &[i32], instructions: Vec<String>) -> Vec<i32> {
         let action: Vec<&str> = instruction.split(" ").collect();
         match action[0] {
             "cmp" => {
-                arr2 = make_arr2(&arr1);
                 let index1 = action[1].parse::<usize>().unwrap();
                 let index2 = action[2].parse::<usize>().unwrap();
+
+                arr2 = make_arr2(&arr1);
                 arr2[index1] = format!("\x1b[102m{}\x1b[0m", arr2[index1]);
                 arr2[index2] = format!("\x1b[103m{}\x1b[0m", arr2[index2]);
                 println!("{}", &arr2.join(", "))
@@ -25,6 +26,7 @@ pub fn visualize(arr: &[i32], instructions: Vec<String>) -> Vec<i32> {
             "swp" => {
                 let index1 = action[1].parse::<usize>().unwrap();
                 let index2 = action[2].parse::<usize>().unwrap();
+                
                 arr1.swap(index1, index2);
                 arr2 = make_arr2(&arr1);
                 arr2[index1] = format!("\x1b[101m{}\x1b[0m", arr2[index1]);

@@ -14,4 +14,3 @@ name = "sorting_visualizer"
 path = "src/bin/bin.rs"
 
 [dependencies]
-colored = "2.0.0"
