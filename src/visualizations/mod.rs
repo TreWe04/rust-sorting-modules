@@ -96,3 +96,23 @@ pub fn bubble_sort(arr: &[i32]) -> Vec<String> {
 
     result
 }
+
+pub fn insertion_sort(arr: &[i32]) -> Vec<String> {
+    let mut arr1 = arr.to_vec();
+    let mut result: Vec<String> = Vec::new();
+
+    //usize to isize conversion to prevent overflow errors.
+    for i in 1..arr.len() {
+        let key = arr[i];
+        let mut j = (i-1) as isize;
+        
+        while j >= 0 && key < arr1[j as usize] {
+            result.push(format!("cmp {} {}", j, j+1));
+            arr1.swap(j as usize, (j as usize)+1);
+            result.push(format!("swp {} {}", j, j+1));
+            j -= 1;
+        }
+    }
+
+    result
+}
