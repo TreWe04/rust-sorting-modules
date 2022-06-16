@@ -27,7 +27,7 @@ pub fn selection_sort (arr: &[i32]) -> Vec<i32> {
 }
 
 
-pub fn bubble_sort (arr: &[i32]) -> Vec<i32> {
+pub fn bubble_sort(arr: &[i32]) -> Vec<i32> {
     if arr.len() == 0 {return vec![]};
     let mut arr1: Vec<i32> = arr.to_vec();
 
@@ -46,5 +46,20 @@ pub fn bubble_sort (arr: &[i32]) -> Vec<i32> {
         }
     }
 
+    arr1
+}
+
+pub fn insertion_sort(arr: &[i32]) -> Vec<i32> {
+    let mut arr1 = arr.to_vec();
+
+    for i in 1..arr.len() {
+        let key = arr[i];
+        let mut j = i-1;
+        while key < arr1[j] {
+            arr1.swap(j, j+1);
+            if j > 0 {j -= 1;}
+        }
+    }
+    
     arr1
 }
