@@ -116,3 +116,48 @@ pub fn insertion_sort(arr: &[i32]) -> Vec<String> {
 
     result
 }
+
+pub fn heap_sort(arr: &[i32]) -> Vec<String> {
+    fn heapify(result: &mut Vec<String>, arr: &mut Vec<i32>, n: usize, i: usize) {
+        // collect indeces of root and children
+        let mut largest = i;
+        let left_child = i*2 + 1;
+        let right_child = i*2 + 2;
+
+        if left_child < n {
+            result.push(format!("cmp {} {}", i, left_child));
+            
+            if arr[left_child] > arr[largest] {
+                largest = left_child;
+            }
+        } 
+        if right_child < n {
+            result.push(format!("cmp {} {}", i, right_child));
+
+            if arr[right_child] > arr[largest] {
+                largest = right_child;
+            }
+        }
+
+        if largest != i {
+            arr.swap(i, largest);
+            result.push(format!("swp {} {}", i, largest));
+            heapify(result, arr, n, largest);
+        }
+    }
+
+    let mut arr1 = arr.to_vec();
+    let mut result: Vec<String> = Vec::new();
+
+    for i in (0..(arr.len()/2)).rev() {
+        heapify(&mut result, &mut arr1, arr.len(), i);
+    }
+
+    for i in (0..arr1.len()).rev() {
+        arr1.swap(0, i);
+        result.push(format!("swp {} {}", 0, i));
+        heapify(&mut result, &mut arr1, i, 0);
+    }
+
+    result
+}
