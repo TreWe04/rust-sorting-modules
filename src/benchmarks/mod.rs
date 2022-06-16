@@ -52,14 +52,15 @@ pub fn bubble_sort(arr: &[i32]) -> Vec<i32> {
 pub fn insertion_sort(arr: &[i32]) -> Vec<i32> {
     let mut arr1 = arr.to_vec();
 
+    //usize to isize conversion to prevent overflow errors.
     for i in 1..arr.len() {
         let key = arr[i];
-        let mut j = i-1;
-        while key < arr1[j] {
-            arr1.swap(j, j+1);
-            if j > 0 {j -= 1;}
+        let mut j = (i-1) as isize;
+        while j >= 0 && key < arr1[j as usize] {
+            arr1.swap(j as usize, (j as usize)+1);
+            j -= 1;
         }
     }
-    
+
     arr1
 }
