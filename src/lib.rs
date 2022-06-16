@@ -12,20 +12,43 @@ mod tests {
     static TC6: [i32; 10] = [10, 90, 20, 80, 30, 70, 40, 60, 50, 50];
 
     #[test]
-    fn selection_sort() {
+    fn selection_sort_benchmark() {
         assert_eq!(crate::benchmarks::selection_sort(&TC1), []);
         assert_eq!(crate::benchmarks::selection_sort(&TC2), [1]);
         assert_eq!(crate::benchmarks::selection_sort(&TC3), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
         assert_eq!(crate::benchmarks::selection_sort(&TC4), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
         assert_eq!(crate::benchmarks::selection_sort(&TC5), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
         assert_eq!(crate::benchmarks::selection_sort(&TC6), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
+    }
 
+    #[test]
+    fn selection_sort_visual() {
         assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::selection_sort(&TC1)), []);
         assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::selection_sort(&TC2)), [1]);
         assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::selection_sort(&TC3)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
         assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::selection_sort(&TC4)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
         assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::selection_sort(&TC5)), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
         assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::selection_sort(&TC6)), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
+    }
+
+    #[test]
+    fn bubble_sort_benchmark() {
+        assert_eq!(crate::benchmarks::bubble_sort(&TC1), []);
+        assert_eq!(crate::benchmarks::bubble_sort(&TC2), [1]);
+        assert_eq!(crate::benchmarks::bubble_sort(&TC3), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::benchmarks::bubble_sort(&TC4), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::benchmarks::bubble_sort(&TC5), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+        assert_eq!(crate::benchmarks::bubble_sort(&TC6), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
+    }
+
+    #[test]
+    fn bubble_sort_visual() {
+        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::bubble_sort(&TC1)), []);
+        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::bubble_sort(&TC2)), [1]);
+        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::bubble_sort(&TC3)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::bubble_sort(&TC4)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::bubble_sort(&TC5)), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::bubble_sort(&TC6)), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
     }
 }
 

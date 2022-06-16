@@ -1,3 +1,5 @@
+#![allow(while_true)]
+
 fn make_arr2 (arr: &Vec<i32>) -> Vec<String> {
     let mut result = Vec::new();
     for num in arr {
@@ -40,7 +42,7 @@ pub fn visualize(arr: &[i32], instructions: Vec<String>) -> Vec<i32> {
     arr1
 }
 
-pub fn selection_sort (arr: &[i32]) -> Vec<String> {
+pub fn selection_sort(arr: &[i32]) -> Vec<String> {
     if arr.len() == 0 {return vec![]};
     let mut arr1: Vec<i32> = arr.to_vec();
     let mut result: Vec<String> = Vec::new();
@@ -62,6 +64,31 @@ pub fn selection_sort (arr: &[i32]) -> Vec<String> {
             result.push(format!("swp {} {}", min_index, index));
         }
         index += 1;
+    }
+
+    result
+}
+
+pub fn bubble_sort(arr: &[i32]) -> Vec<String> {
+    if arr.len() == 0 {return vec![]};
+    let mut arr1: Vec<i32> = arr.to_vec();
+    let mut result: Vec<String> = Vec::new();
+
+    while true {
+        let mut has_swapped = false;
+
+        for i in 0..(arr1.len()-1){
+            result.push(format!("cmp {} {}", i, i+1));
+            if arr1[i] > arr1[i+1] {
+                arr1.swap(i, i+1);
+                result.push(format!("swp {} {}", i, i+1));
+                has_swapped = true;
+            }
+        }
+
+        if !has_swapped {
+            break;
+        }
     }
 
     result
