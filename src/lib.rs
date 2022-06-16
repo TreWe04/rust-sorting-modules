@@ -70,6 +70,16 @@ mod tests {
         assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::insertion_sort(&TC5)), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
         assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::insertion_sort(&TC6)), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
     }
+
+    #[test]
+    fn heap_sort_benchmark() {
+        assert_eq!(crate::benchmarks::heap_sort(&TC1), []);
+        assert_eq!(crate::benchmarks::heap_sort(&TC2), [1]);
+        assert_eq!(crate::benchmarks::heap_sort(&TC3), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::benchmarks::heap_sort(&TC4), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::benchmarks::heap_sort(&TC5), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+        assert_eq!(crate::benchmarks::heap_sort(&TC6), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
+    }
 }
 
 
