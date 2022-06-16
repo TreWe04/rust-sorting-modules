@@ -1,6 +1,6 @@
 #![allow(while_true)]
 
-fn make_arr2 (arr: &Vec<i32>) -> Vec<String> {
+fn make_arr2(arr: &Vec<i32>) -> Vec<String> {
     let mut result = Vec::new();
     for num in arr {
         result.push(num.to_string());
