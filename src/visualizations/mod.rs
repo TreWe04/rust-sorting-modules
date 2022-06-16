@@ -1,6 +1,6 @@
 #![allow(while_true)]
 
-fn make_arr2 (arr: &Vec<i32>) -> Vec<String> {
+fn make_arr2(arr: &Vec<i32>) -> Vec<String> {
     let mut result = Vec::new();
     for num in arr {
         result.push(num.to_string());
@@ -11,7 +11,10 @@ fn make_arr2 (arr: &Vec<i32>) -> Vec<String> {
 pub fn visualize(arr: &[i32], instructions: Vec<String>) -> Vec<i32> {
     let mut arr1: Vec<i32> = arr.to_vec();
     let mut arr2: Vec<String> = make_arr2(&arr1);
-    println!("{}\nSteps to sort: {}", &arr2.join(", "), instructions.len());
+
+    println!("{}", &arr2.join(", "));
+    println!("Steps to sort: {}",  instructions.len());
+    println!("Key: \x1b[102mInitial Value\x1b[0m, \x1b[103mCompared Value\x1b[0m, \x1b[101mSwapped Values\x1b[0m");
 
     for instruction in &instructions {
         let action: Vec<&str> = instruction.split(" ").collect();
@@ -88,6 +91,26 @@ pub fn bubble_sort(arr: &[i32]) -> Vec<String> {
 
         if !has_swapped {
             break;
+        }
+    }
+
+    result
+}
+
+pub fn insertion_sort(arr: &[i32]) -> Vec<String> {
+    let mut arr1 = arr.to_vec();
+    let mut result: Vec<String> = Vec::new();
+
+    //usize to isize conversion to prevent overflow errors.
+    for i in 1..arr.len() {
+        let key = arr[i];
+        let mut j = (i-1) as isize;
+        
+        while j >= 0 && key < arr1[j as usize] {
+            result.push(format!("cmp {} {}", j, j+1));
+            arr1.swap(j as usize, (j as usize)+1);
+            result.push(format!("swp {} {}", j, j+1));
+            j -= 1;
         }
     }
 
