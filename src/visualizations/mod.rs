@@ -24,11 +24,13 @@ pub fn visualize<F>(arr: &[i32], algorithm: F) -> Vec<i32>
         match action[0] {
             "cmp" => {
                 let index1 = action[1].parse::<usize>().unwrap();
-                let index2 = action[2].parse::<usize>().unwrap();
 
                 arr2 = make_arr2(&arr1);
                 arr2[index1] = format!("\x1b[102m{}\x1b[0m", arr2[index1]);
-                arr2[index2] = format!("\x1b[103m{}\x1b[0m", arr2[index2]);
+                for i in 2..action.len() {
+                    let index = action[i].parse::<usize>().unwrap();
+                    arr2[index] = format!("\x1b[103m{}\x1b[0m", arr2[index]);
+                }
                 println!("{}", &arr2.join(", "))
             },
             "swp" => {

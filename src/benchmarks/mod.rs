@@ -107,7 +107,6 @@ pub fn quick_sort(arr: &[i32]) -> Vec<i32> {
         let mut i = low;
 
         for j in low..high {
-            println!("{}, {}, {:?}", i, j, arr);
             if arr[j] <= comp {
                 arr.swap(i, j);
                 i += 1;
@@ -115,7 +114,6 @@ pub fn quick_sort(arr: &[i32]) -> Vec<i32> {
         }
 
         let pi = i;
-        println!("{}, {}, {:?}", pi, high, arr);
         arr.swap(pi, high);
 
         if pi > 0{
