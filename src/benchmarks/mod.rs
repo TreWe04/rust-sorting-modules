@@ -131,3 +131,52 @@ pub fn quick_sort(arr: &[i32]) -> Vec<i32> {
 
     arr1
 }
+
+pub fn merge_sort(arr: &[i32]) -> Vec<i32> {
+    fn merge(mut arr: Vec<i32>) -> Vec<i32> {
+        let mid = arr.len()/2;
+        
+        let mut arr_l = arr[..mid].to_vec();
+        let mut arr_r = arr[mid..].to_vec();
+
+        if arr_l.len() >= 2 {
+            arr_l = merge(arr_l);
+        }
+        if arr_r.len() >= 2 {
+            arr_r = merge(arr_r);
+        }
+        
+        
+        let (mut i, mut j, mut k) = (0, 0, 0);
+        while i < arr_l.len() && j < arr_r.len() {
+            if arr_l[i] < arr_r[j] {
+                arr[k] = arr_l[i];
+                i += 1;
+            } else {
+                arr[k] = arr_r[j];
+                j += 1;
+            }
+            k += 1;
+        }
+
+        while i < arr_l.len() {
+            arr[k] = arr_l[i];
+            i += 1;
+            k += 1;
+        }
+
+        while j < arr_r.len() {
+            arr[k] = arr_r[j];
+            j += 1;
+            k += 1;
+        }
+
+        arr
+    }
+    
+    let mut arr1 = arr.to_vec();
+
+    arr1 = merge(arr1);
+
+    arr1
+}
