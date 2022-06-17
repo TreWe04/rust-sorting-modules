@@ -12,9 +12,9 @@ pub fn visualize(arr: &[i32], instructions: Vec<String>) -> Vec<i32> {
     let mut arr1: Vec<i32> = arr.to_vec();
     let mut arr2: Vec<String> = make_arr2(&arr1);
 
-    println!("{}", &arr2.join(", "));
+    println!("Initial list: {}", &arr2.join(", "));
     println!("Steps to sort: {}",  instructions.len());
-    println!("Key: \x1b[102mInitial Value\x1b[0m, \x1b[103mCompared Value\x1b[0m, \x1b[101mSwapped Values\x1b[0m");
+    println!("Key: \x1b[102mInitial Value\x1b[0m, \x1b[103mCompared Value\x1b[0m, \x1b[101mSwapped Values\x1b[0m\n");
 
     for instruction in &instructions {
         let action: Vec<&str> = instruction.split(" ").collect();

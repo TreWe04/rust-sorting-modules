@@ -99,3 +99,37 @@ pub fn heap_sort(arr: &[i32]) -> Vec<i32> {
 
     arr1
 }
+
+pub fn quick_sort(arr: &[i32]) -> Vec<i32> {
+    fn pivot (arr: &mut Vec<i32>, low: usize, high: usize) {
+        if low >= high {return;}
+        let comp = arr[high];
+        let mut i = low;
+
+        for j in low..high {
+            println!("{}, {}, {:?}", i, j, arr);
+            if arr[j] <= comp {
+                arr.swap(i, j);
+                i += 1;
+            }
+        }
+
+        let pi = i;
+        println!("{}, {}, {:?}", pi, high, arr);
+        arr.swap(pi, high);
+
+        if pi > 0{
+            pivot(arr, low, pi - 1);
+        }
+        pivot(arr, pi + 1, high);
+
+    }
+
+    if arr.len() == 0 {return [].to_vec();}
+    
+    let mut arr1 = arr.to_vec();
+
+    pivot(&mut arr1, 0, arr.len() - 1);
+
+    arr1
+}
