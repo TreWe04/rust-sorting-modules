@@ -23,12 +23,12 @@ mod tests {
 
     #[test]
     fn selection_sort_visual() {
-        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::selection_sort(&TC1)), []);
-        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::selection_sort(&TC2)), [1]);
-        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::selection_sort(&TC3)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::selection_sort(&TC4)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::selection_sort(&TC5)), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
-        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::selection_sort(&TC6)), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
+        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::selection_sort), []);
+        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::selection_sort), [1]);
+        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::selection_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::selection_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::selection_sort), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::selection_sort), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
     }
 
     #[test]
@@ -43,12 +43,12 @@ mod tests {
 
     #[test]
     fn bubble_sort_visual() {
-        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::bubble_sort(&TC1)), []);
-        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::bubble_sort(&TC2)), [1]);
-        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::bubble_sort(&TC3)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::bubble_sort(&TC4)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::bubble_sort(&TC5)), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
-        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::bubble_sort(&TC6)), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
+        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::bubble_sort), []);
+        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::bubble_sort), [1]);
+        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::bubble_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::bubble_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::bubble_sort), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::bubble_sort), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
     }
 
     #[test]
@@ -63,12 +63,12 @@ mod tests {
 
     #[test]
     fn insertion_sort_visual() {
-        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::insertion_sort(&TC1)), []);
-        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::insertion_sort(&TC2)), [1]);
-        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::insertion_sort(&TC3)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::insertion_sort(&TC4)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::insertion_sort(&TC5)), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
-        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::insertion_sort(&TC6)), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
+        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::insertion_sort), []);
+        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::insertion_sort), [1]);
+        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::insertion_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::insertion_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::insertion_sort), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::insertion_sort), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
     }
 
     #[test]
@@ -83,12 +83,12 @@ mod tests {
 
     #[test]
     fn heap_sort_visual() {
-        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::heap_sort(&TC1)), []);
-        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::heap_sort(&TC2)), [1]);
-        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::heap_sort(&TC3)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::heap_sort(&TC4)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
-        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::heap_sort(&TC5)), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
-        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::heap_sort(&TC6)), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
+        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::heap_sort), []);
+        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::heap_sort), [1]);
+        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::heap_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::heap_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::heap_sort), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::heap_sort), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
     }
 
     #[test]
