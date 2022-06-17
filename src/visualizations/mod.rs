@@ -8,24 +8,29 @@ fn make_arr2(arr: &Vec<i32>) -> Vec<String> {
     result
 }
 
-pub fn visualize(arr: &[i32], instructions: Vec<String>) -> Vec<i32> {
+pub fn visualize<F>(arr: &[i32], algorithm: F) -> Vec<i32> 
+    where F: Fn(&[i32]) -> Vec<String>
+{
+    let instructions: Vec<String> = algorithm(arr);
     let mut arr1: Vec<i32> = arr.to_vec();
     let mut arr2: Vec<String> = make_arr2(&arr1);
 
-    println!("{}", &arr2.join(", "));
+    println!("Initial list: {}", &arr2.join(", "));
     println!("Steps to sort: {}",  instructions.len());
-    println!("Key: \x1b[102mInitial Value\x1b[0m, \x1b[103mCompared Value\x1b[0m, \x1b[101mSwapped Values\x1b[0m");
+    println!("Key: \x1b[102mInitial Value\x1b[0m, \x1b[103mCompared Value\x1b[0m, \x1b[101mSwapped Values\x1b[0m\n");
 
     for instruction in &instructions {
         let action: Vec<&str> = instruction.split(" ").collect();
         match action[0] {
             "cmp" => {
                 let index1 = action[1].parse::<usize>().unwrap();
-                let index2 = action[2].parse::<usize>().unwrap();
 
                 arr2 = make_arr2(&arr1);
                 arr2[index1] = format!("\x1b[102m{}\x1b[0m", arr2[index1]);
-                arr2[index2] = format!("\x1b[103m{}\x1b[0m", arr2[index2]);
+                for i in 2..action.len() {
+                    let index = action[i].parse::<usize>().unwrap();
+                    arr2[index] = format!("\x1b[103m{}\x1b[0m", arr2[index]);
+                }
                 println!("{}", &arr2.join(", "))
             },
             "swp" => {
@@ -158,6 +163,43 @@ pub fn heap_sort(arr: &[i32]) -> Vec<String> {
         result.push(format!("swp {} {}", 0, i));
         heapify(&mut result, &mut arr1, i, 0);
     }
+
+    result
+}
+
+pub fn quick_sort(arr: &[i32]) -> Vec<String> {
+    fn pivot (result: &mut Vec<String>, arr: &mut Vec<i32>, low: usize, high: usize) {
+        if low >= high {return;}
+        let comp = arr[high];
+        let mut i = low;
+
+        for j in low..high {
+            result.push(format!("cmp {} {} {}", high, i, j));
+            if arr[j] <= comp {
+                if i != j {
+                    arr.swap(i, j);
+                    result.push(format!("swp {} {}", i, j));
+                }
+                i += 1;
+            }
+        }
+
+        let pi = i;
+        arr.swap(pi, high);
+        result.push(format!("swp {} {}", pi, high));
+
+        if pi > 0{
+            pivot(result, arr, low, pi - 1);
+        }
+        pivot(result, arr, pi + 1, high);
+    }
+
+    if arr.len() == 0 {return [].to_vec();}
+    
+    let mut arr1 = arr.to_vec();
+    let mut result: Vec<String> = Vec::new();
+
+    pivot(&mut result, &mut arr1, 0, arr.len() - 1);
 
     result
 }
