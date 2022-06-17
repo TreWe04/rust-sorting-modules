@@ -100,6 +100,16 @@ mod tests {
         assert_eq!(crate::benchmarks::quick_sort(&TC5), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
         assert_eq!(crate::benchmarks::quick_sort(&TC6), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
     }
+
+    #[test]
+    fn quick_sort_visual() {
+        assert_eq!(crate::visualizations::visualize(&TC1, crate::visualizations::quick_sort), []);
+        assert_eq!(crate::visualizations::visualize(&TC2, crate::visualizations::quick_sort), [1]);
+        assert_eq!(crate::visualizations::visualize(&TC3, crate::visualizations::quick_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC4, crate::visualizations::quick_sort), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        assert_eq!(crate::visualizations::visualize(&TC5, crate::visualizations::quick_sort), [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+        assert_eq!(crate::visualizations::visualize(&TC6, crate::visualizations::quick_sort), [10, 20, 30, 40, 50, 50, 60, 70, 80, 90]);
+    }
 }
 
 

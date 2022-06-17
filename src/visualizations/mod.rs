@@ -174,21 +174,24 @@ pub fn quick_sort(arr: &[i32]) -> Vec<String> {
         let mut i = low;
 
         for j in low..high {
-            result.push(format!("cmp {}, {}", high, j));
+            result.push(format!("cmp {} {} {}", high, i, j));
             if arr[j] <= comp {
-                arr.swap(i, j);
+                if i != j {
+                    arr.swap(i, j);
+                    result.push(format!("swp {} {}", i, j));
+                }
                 i += 1;
             }
         }
 
         let pi = i;
         arr.swap(pi, high);
+        result.push(format!("swp {} {}", pi, high));
 
         if pi > 0{
             pivot(result, arr, low, pi - 1);
         }
         pivot(result, arr, pi + 1, high);
-
     }
 
     if arr.len() == 0 {return [].to_vec();}
