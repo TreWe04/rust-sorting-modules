@@ -8,7 +8,10 @@ fn make_arr2(arr: &Vec<i32>) -> Vec<String> {
     result
 }
 
-pub fn visualize(arr: &[i32], instructions: Vec<String>) -> Vec<i32> {
+pub fn visualize<F>(arr: &[i32], algorithm: F) -> Vec<i32> 
+    where F: Fn(&[i32]) -> Vec<String>
+{
+    let instructions: Vec<String> = algorithm(arr);
     let mut arr1: Vec<i32> = arr.to_vec();
     let mut arr2: Vec<String> = make_arr2(&arr1);
 
@@ -158,6 +161,40 @@ pub fn heap_sort(arr: &[i32]) -> Vec<String> {
         result.push(format!("swp {} {}", 0, i));
         heapify(&mut result, &mut arr1, i, 0);
     }
+
+    result
+}
+
+pub fn quick_sort(arr: &[i32]) -> Vec<String> {
+    fn pivot (result: &mut Vec<String>, arr: &mut Vec<i32>, low: usize, high: usize) {
+        if low >= high {return;}
+        let comp = arr[high];
+        let mut i = low;
+
+        for j in low..high {
+            result.push(format!("cmp {}, {}", high, j));
+            if arr[j] <= comp {
+                arr.swap(i, j);
+                i += 1;
+            }
+        }
+
+        let pi = i;
+        arr.swap(pi, high);
+
+        if pi > 0{
+            pivot(result, arr, low, pi - 1);
+        }
+        pivot(result, arr, pi + 1, high);
+
+    }
+
+    if arr.len() == 0 {return [].to_vec();}
+    
+    let mut arr1 = arr.to_vec();
+    let mut result: Vec<String> = Vec::new();
+
+    pivot(&mut result, &mut arr1, 0, arr.len() - 1);
 
     result
 }
