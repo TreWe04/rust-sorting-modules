@@ -170,7 +170,7 @@ pub fn merge_sort(arr: &[i32]) -> Vec<i32> {
         }   
     }
     
-    if arr.len() == 0 {return arr.to_vec();}
+    if arr.len() == 0 {return [].to_vec();}
 
     let mut arr1 = arr.to_vec();
     merge(&mut arr1, 0, arr.len() - 1);
