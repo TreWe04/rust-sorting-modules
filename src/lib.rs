@@ -7,12 +7,12 @@ mod tests {
     use crate::benchmarks;
     use crate::visualizations::{self, visualize};
     
-    static TC1: [i32; 0] = [];
-    static TC2: [i32; 1]  = [1];
-    static TC3: [i32; 10] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    static TC4: [i32; 10] = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
-    static TC5: [i32; 12] = [5, 5, 4, 4, 3, 3, 2, 2, 1, 1, 0, 0];
-    static TC6: [i32; 10] = [10, 90, 20, 80, 30, 70, 40, 60, 50, 50];
+    static TC1: [u32; 0] = [];
+    static TC2: [u32; 1]  = [1];
+    static TC3: [u32; 10] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    static TC4: [u32; 10] = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+    static TC5: [u32; 12] = [5, 5, 4, 4, 3, 3, 2, 2, 1, 1, 0, 0];
+    static TC6: [u32; 10] = [10, 90, 20, 80, 30, 70, 40, 60, 50, 50];
 
     #[test]
     fn selection_sort_benchmark() {

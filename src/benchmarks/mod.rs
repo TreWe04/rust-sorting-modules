@@ -1,8 +1,8 @@
 #![allow(while_true)]
 
-pub fn selection_sort(arr: &[i32]) -> Vec<i32> {
+pub fn selection_sort(arr: &[u32]) -> Vec<u32> {
     if arr.len() == 0 {return vec![]};
-    let mut arr1: Vec<i32> = arr.to_vec();
+    let mut arr1: Vec<u32> = arr.to_vec();
     
     let mut index = 0;
     for _ in 0..(arr1.len()-1) {
@@ -27,9 +27,9 @@ pub fn selection_sort(arr: &[i32]) -> Vec<i32> {
 }
 
 
-pub fn bubble_sort(arr: &[i32]) -> Vec<i32> {
+pub fn bubble_sort(arr: &[u32]) -> Vec<u32> {
     if arr.len() == 0 {return vec![]};
-    let mut arr1: Vec<i32> = arr.to_vec();
+    let mut arr1: Vec<u32> = arr.to_vec();
 
     while true {
         let mut has_swapped = false;
@@ -49,7 +49,7 @@ pub fn bubble_sort(arr: &[i32]) -> Vec<i32> {
     arr1
 }
 
-pub fn insertion_sort(arr: &[i32]) -> Vec<i32> {
+pub fn insertion_sort(arr: &[u32]) -> Vec<u32> {
     let mut arr1 = arr.to_vec();
 
     //j is internally stored as isize conversion to prevent overflow errors.
@@ -65,8 +65,8 @@ pub fn insertion_sort(arr: &[i32]) -> Vec<i32> {
     arr1
 }
 
-pub fn heap_sort(arr: &[i32]) -> Vec<i32> {
-    fn heapify(arr: &mut Vec<i32>, n: usize, i: usize) {
+pub fn heap_sort(arr: &[u32]) -> Vec<u32> {
+    fn heapify(arr: &mut Vec<u32>, n: usize, i: usize) {
         // collect indeces of root and children
         let mut largest = i;
         let left_child = i*2 + 1;
@@ -100,8 +100,8 @@ pub fn heap_sort(arr: &[i32]) -> Vec<i32> {
     arr1
 }
 
-pub fn quick_sort(arr: &[i32]) -> Vec<i32> {
-    fn pivot (arr: &mut Vec<i32>, low: usize, high: usize) {
+pub fn quick_sort(arr: &[u32]) -> Vec<u32> {
+    fn pivot (arr: &mut Vec<u32>, low: usize, high: usize) {
         if low >= high {return;}
         let comp = arr[high];
         let mut i = low;
@@ -132,8 +132,8 @@ pub fn quick_sort(arr: &[i32]) -> Vec<i32> {
     arr1
 }
 
-pub fn merge_sort(arr: &[i32]) -> Vec<i32> {
-    fn merge(arr: &mut Vec<i32>, mut  start_l: usize, end: usize){
+pub fn merge_sort(arr: &[u32]) -> Vec<u32> {
+    fn merge(arr: &mut Vec<u32>, mut  start_l: usize, end: usize){
         
         let mut mid = (start_l + end) / 2;
         println!("{}, {}, {}", start_l, mid, end);

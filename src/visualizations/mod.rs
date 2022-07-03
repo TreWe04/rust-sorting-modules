@@ -1,6 +1,6 @@
 #![allow(while_true)]
 
-fn make_arr2(arr: &Vec<i32>) -> Vec<String> {
+fn make_arr2(arr: &Vec<u32>) -> Vec<String> {
     let mut result = Vec::new();
     for num in arr {
         result.push(num.to_string());
@@ -8,11 +8,11 @@ fn make_arr2(arr: &Vec<i32>) -> Vec<String> {
     result
 }
 
-pub fn visualize<F>(arr: &[i32], algorithm: F) -> Vec<i32> 
-    where F: Fn(&[i32]) -> Vec<String>
+pub fn visualize<F>(arr: &[u32], algorithm: F) -> Vec<u32> 
+    where F: Fn(&[u32]) -> Vec<String>
 {
     let instructions: Vec<String> = algorithm(arr);
-    let mut arr1: Vec<i32> = arr.to_vec();
+    let mut arr1: Vec<u32> = arr.to_vec();
     let mut arr2: Vec<String> = make_arr2(&arr1);
 
     println!("Initial list: {}", &arr2.join(", "));
@@ -50,9 +50,9 @@ pub fn visualize<F>(arr: &[i32], algorithm: F) -> Vec<i32>
     arr1
 }
 
-pub fn selection_sort(arr: &[i32]) -> Vec<String> {
+pub fn selection_sort(arr: &[u32]) -> Vec<String> {
     if arr.len() == 0 {return vec![]};
-    let mut arr1: Vec<i32> = arr.to_vec();
+    let mut arr1: Vec<u32> = arr.to_vec();
     let mut result: Vec<String> = Vec::new();
     
     let mut index = 0;
@@ -77,9 +77,9 @@ pub fn selection_sort(arr: &[i32]) -> Vec<String> {
     result
 }
 
-pub fn bubble_sort(arr: &[i32]) -> Vec<String> {
+pub fn bubble_sort(arr: &[u32]) -> Vec<String> {
     if arr.len() == 0 {return vec![]};
-    let mut arr1: Vec<i32> = arr.to_vec();
+    let mut arr1: Vec<u32> = arr.to_vec();
     let mut result: Vec<String> = Vec::new();
 
     while true {
@@ -102,7 +102,7 @@ pub fn bubble_sort(arr: &[i32]) -> Vec<String> {
     result
 }
 
-pub fn insertion_sort(arr: &[i32]) -> Vec<String> {
+pub fn insertion_sort(arr: &[u32]) -> Vec<String> {
     let mut arr1 = arr.to_vec();
     let mut result: Vec<String> = Vec::new();
 
@@ -122,8 +122,8 @@ pub fn insertion_sort(arr: &[i32]) -> Vec<String> {
     result
 }
 
-pub fn heap_sort(arr: &[i32]) -> Vec<String> {
-    fn heapify(result: &mut Vec<String>, arr: &mut Vec<i32>, n: usize, i: usize) {
+pub fn heap_sort(arr: &[u32]) -> Vec<String> {
+    fn heapify(result: &mut Vec<String>, arr: &mut Vec<u32>, n: usize, i: usize) {
         // collect indeces of root and children
         let mut largest = i;
         let left_child = i*2 + 1;
@@ -167,8 +167,8 @@ pub fn heap_sort(arr: &[i32]) -> Vec<String> {
     result
 }
 
-pub fn quick_sort(arr: &[i32]) -> Vec<String> {
-    fn pivot (result: &mut Vec<String>, arr: &mut Vec<i32>, low: usize, high: usize) {
+pub fn quick_sort(arr: &[u32]) -> Vec<String> {
+    fn pivot (result: &mut Vec<String>, arr: &mut Vec<u32>, low: usize, high: usize) {
         if low >= high {return;}
         let comp = arr[high];
         let mut i = low;
@@ -205,8 +205,8 @@ pub fn quick_sort(arr: &[i32]) -> Vec<String> {
 }
 
 
-pub fn merge_sort(arr: &[i32]) -> Vec<String> {
-    fn merge(result: &mut Vec<String>, arr: &mut Vec<i32>, mut  start_l: usize, end: usize){
+pub fn merge_sort(arr: &[u32]) -> Vec<String> {
+    fn merge(result: &mut Vec<String>, arr: &mut Vec<u32>, mut  start_l: usize, end: usize){
         
         let mut mid = (start_l + end) / 2;
         println!("{}, {}, {}", start_l, mid, end);
